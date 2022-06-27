@@ -1,0 +1,103 @@
+///// overview
+js is high level, garbage collection, interpreted or compiling happens inside js engine, 
+multi-paradigm(approach of structuring code) 
+3 popular paradigms are 
+  procedural programming - organizing code
+  object oriented programming - 
+  functional programming, 
+prototype-based object oriented,
+first class functions,
+dynamic(typed) language,
+single-threaded(does one thing at a time),
+non-blocking event loop
+
+- concurrency model -> how js handles multiple tasks happening at a time
+- single thread
+- long running tasks(so we need non blocking behaviour)
+- achieve that by event loop(takes and executes long running tasks in background and puts back when finished)
+
+
+///// js engine and runtime
+js engine - program that execute js code(example - v8 engine)
+js engine contains : call stack(our code executed using execution context) & heap(object are stored)
+
+
+compilation(entire code is converted into machine code at once) and the executed
+interpretation(exectution happen line by line)
+
+mix of compilation and interpretation
+just-in-time(jst) compilation(entire code is converted into machine code and executed immediately)
+
+in js engine: 1- parsing od code line by line, 2- compilation(jst), 3- execution(optimization happens and recompilation)
+
+// runtime
+js runtime = js engine(heart) + web APIs + callback queue(ds that contains all callback functions that are ready to be executed)
+ 
+
+
+
+///// execution context
+-> creation of global execution context(for top-level code)
+-> execution of top-level code inside ec
+-> execution of functions and callbacks
+
+execution context made of : 1.variable environment(functions, arguments and declarations)
+                            2.scope chain(consists references to variables located outside current function)
+                            3.this keyword
+
+call stack : exectution contexts gets stacked on top of each other to keep track of where we are in program execution
+
+
+
+
+/////scope and scope chain
+scoping: how variables are orgainzed and accessed.(where do variables live or where can we access variable and where not)
+scope: space or environment in which variable is declared
+global scope -> variables are accessible everywhere
+function scope -> variables are accesible only inside functions(local scope) 
+block scope -> variable are accessible inside a block{} 
+--let and const are block scoped while var is function scoped
+
+scope chain: every child scope variable has access to its parent scope variables but 
+parent scope variable cannot access the child scope variables
+
+
+
+
+/////hoisting in js
+makes some types of variables accessible before they are already declared
+function declarations -> hoisted and initial valueis actual function
+var variables -> hoisted and initial value is undefined
+let and const variables -> not hoisted(technically hoisted but not in practice bcoz initial value is uninitialized)
+function expression and arrows -> depends on var or let/const
+
+temporal dead zone(TDZ): makes easier to avoid and catch errors(accessing variables before declaring is bad practice)
+
+why hoisting: to use function before actual declaration
+
+
+
+
+/////this keyword
+created for every execution context(every function), it takes the value of owner functionin which this keyword is used
+so value is not static and itdepends on HOW function is called
+
+types of ways in which function can be called:
+1. method -> this keyword points to the object that is calling the method
+2. simply calling function -> this keyword is undefined
+3. arrow function -> do not get its own this keyword
+4. event listener -> this keyword points to the DOM element that handler is attached to
+
+this keyword does NOT points to the function itself and also NOT its variable environment
+
+
+
+
+/////regular vs. arrow function
+
+
+
+
+/////primitives vs objects
+primitives or primitive types(number, string, boolean, undefined, null) are stored in call stack of js engine
+and objects or reference types(object literal, array, function) are stored in heap of js engine 
