@@ -1,0 +1,25 @@
+first class function
+
+js treates functions as first class citizens
+functions are just another type of objects
+
+since objects are values functions are values too and soo
+we can do interesting things as
+-> storing in variables or object properties
+-> pass function as argument to other function
+-> return a function from function
+-> call methods on function(example-bind method)
+
+
+higher order function
+
+function that receives another function as argument or function that returns a new function or both
+1. function that receives another function(callback function will be called later by higher order function)
+2. function that return another function
+
+
+first class vs higher order
+--first class is just a feature that a programming language either has or not(all it means is all function are values)
+--no first class function inpractice(just a concept)
+
+--higher order function are in practice possible bcoz the language supports first class function

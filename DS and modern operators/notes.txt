@@ -1,0 +1,134 @@
+/////destructuring arrays(use []) -> unpacking values from array or object in seperating(to break)
+on the left side of the = sign when js sees array like it knows that it should do destructuring
+
+
+/////destructuring objects(use {}) -> same as arrays destructuring
+new key names :
+default values :
+mutating variables : change the values of the variables(overwrite)
+
+
+/////spread operator(used to build new arrays or to pass multiple values into function)
+const arr = [1, 2] 
+consr newArr = [0, ...arr] // [0, 1, 2]
+...newArr // 0, 1, 2
+
+
+/////rest operator(opposite of spread)(collect multiple elements and condense into array)
+const [a, b, ...other] = [0, 1, 2, 3, 4] 
+a, b, other// 0, 2, [2, 3, 4]
+
+
+/////short circuiting(&& and ||)
+for || -> if first value is truthy it will immediately return that and not even see other conditions
+if all are truthy values it will return first one and if all are flasy it will return last
+
+for && -> if first value is falsy it will immediately short circuit and not see the rest conditions
+if all are truthy values it will return last one
+
+
+/////nullish coalescing operator
+replace || by ?? -> it works with nullish values rather than falsy values
+nullish values are null and undefined(not 0 or empty string)
+for ?? the 0 and empty string are truthy values
+
+
+/////logical assignment operator
+1. OR assignment operator -> ||=
+2. nullish assignment operator -> ??=
+3. AND assignment operator -> &&=
+
+
+/////for of loop
+itterate throw the given variable one by one
+syntax -> for(const name of menu(any variable)) {
+	statements;
+	console.log(name)}
+
+
+/////enhanced object literals
+1. object calling inside object justby object name
+2. need not to write function in declaring function inside object
+3. computing(calculate) property names
+
+
+/////optional chaining(?.)
+to check whether the certain property exists and if not the undefined is returned immediately without giving the error message
+only if the property before the ? exists then only the next property after ? is read
+
+-> methods : it also checks whether the method exists or not
+example : console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+
+-> arrays : checks whether the array exists or whether the array is null or anything
+example : console.log(users[0]?.name ?? 'User array empty');
+
+
+/////looping objects(objects are not not itterables but looping indirectly)
+property keys
+syntax -> for(const days of object.keys(weeks))  console.log(day);
+here object.keys(weeks) is an array
+
+property values
+syntax -> for(const days of object.values(weeks))  console.log(day);
+here object.values(weeks) is an array
+
+entire object
+syntax -> for(const days of object.entries(weeks))  console.log(day);
+here object.entries(weeks) is an array
+
+
+
+/////sets(basically just a collection of unique values and order doesn't matter)(similar to array)
+synatx : const set = new Set();
+
+size of set: .size()
+in set or not: .has()
+add new element: .add()
+delete element: .delete()
+delete all: .clear()
+
+no ways we can get data from the set as retriving data from set doesn't make sense bcoz they have unique values and order really doesn't matter
+looping is possible
+
+
+
+/////maps fundamentals(ds used to map values to keys similar to object but in maps keys can have any types)
+syntax : const map = new Map();
+
+to fill map: .set().set().set().......
+to get map: .get()
+in map or not: .has()
+delete: .delete()
+delete all: .clear()
+size of map: .size()
+
+
+
+/////maps iteration
+convert object to map: const map = new Map(object.entries(object name));
+convert map to array: console.log([...mapName] or [...mapName.keys()] or [...mapName.values()])
+
+
+
+/////strings-1
+methods 
+can get index by [0] or [1],
+.length,
+.indexOf(), .lastIndexOf(),
+.slice(4) will start or give result after 4 elements, .slice(4, 7)(end value is not included)
+
+
+
+/////string-2
+toLowerCase(), toUpperCase()
+.replace('this', 'to this'), replaceAll('this', 'to this'),
+.includes()
+.startsWith(), .endsWith()
+
+
+
+/////string-3
+.split('by what u need to split a string),
+.join()
+padding: .padEnd() -> after string, .padStart() -> before string
+.repeat(number of time to repeat)
