@@ -1,4 +1,54 @@
-first class function
+/////default parameters
+sets default values for function parameters when a value is not passed in at the time of callimg a function
+
+it is done by assigning the default values in the function parameter itself
+so when at the time of calling a function when the parameter is not passed it will automatically assign the default values
+but when a parameter is passed while calling thevalues will overwrite
+
+example: 
+const b = [];
+const a = function(x, y=1, z) {
+    const list = {x, y, z};
+
+    console.log(list);
+    b.push(list);
+}
+
+console.log(a(1, undefined, 2));  // {x: 1, y: 1, z: 2}
+
+
+
+
+
+/////passing arguments works(value vs reference)
+when we try to copy an object we really only copy the reference to that object in memory heap but they both point to same object in memory
+so if we change one object it is exactly the same as changing the other object bcoz they both are the same object in memory
+
+so passing primitive type to a function is just the same as creating a copy outside a function so the value is simply copied
+
+when dealing with function there are two terms
+passing by value
+passing by reference(js doesn't have )
+
+example: 
+const a = "hello";
+const obj = {name: 'hii', value: 6};
+
+const x = function(ab, obj1) {
+    ab = 'hello there';
+    obj1.name = 'hardi';
+    obj1.value = 10;
+}
+x(a, obj);
+
+console.log(a);    // hello		     
+console.log(obj);     {name: 'hardi', value: 10}
+
+
+
+
+
+/////first class function
 
 js treates functions as first class citizens
 functions are just another type of objects
@@ -23,3 +73,46 @@ first class vs higher order
 --no first class function inpractice(just a concept)
 
 --higher order function are in practice possible bcoz the language supports first class function
+
+
+
+
+/////function accepting callback functions
+callback functions are used all the time in js as they makes it easy to split up or organise the code nicely
+callback function allow us to make abstraction - we hide some detailing of the code that we really don't care about
+
+example:
+const x = function(str) {
+    return str.replaceAll(' ', '-').toUpperCase();
+}
+
+const y = function(str) {
+    return str.toLowerCase();
+}
+
+const z = function(str, fn) {
+    console.log(`hey ${fn(str)}`);
+}
+
+z('hii i am here', x);          // hey HII-I-AM-HERE
+
+
+
+
+/////function returning function
+opposite of function calling
+example:
+const x = function(str) {
+    return function(message) {
+        console.log(str, message);
+    };
+};
+const z = x("hi");
+z('how are you');   // hi how are you
+
+or
+
+x("hi")("how are you");  // hi how are you
+
+here the function(message) is stored in variable z so indirectly it is a function and hence we call call the z variable as a function itself
+
