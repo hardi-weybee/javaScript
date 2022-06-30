@@ -116,3 +116,32 @@ x("hi")("how are you");  // hi how are you
 
 here the function(message) is stored in variable z so indirectly it is a function and hence we call call the z variable as a function itself
 
+
+
+
+/////call and apply method
+call apply and bind are used when we want to use THIS keyword explicitly
+
+
+
+
+
+/////immediately invoked function expression(iife)
+the function that we need to execute only once and never again
+example:
+(function() {
+    console.log("scam")
+})();                   // scam
+
+also: (() => console.log("scam"))();   // scam
+
+
+
+
+
+/////closures
+closures are not feature that we explicitly use like arrays or function instead that happens automatically in certain situation we just need to recognize the situation
+closure is a closed over variable environment of execution context in which function was created even after execution context is gone
+closure gives function access to all variables of its parent function even after the parent function has returned
+closure hs more preference or importance then scope chain
+
