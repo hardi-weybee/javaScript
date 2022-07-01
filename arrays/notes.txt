@@ -1,0 +1,196 @@
+/////simple array methods
+
+1. slice doensn't alter the original array
+slice() - gives all array
+slice(start) - starts to slice the array from start index
+slice(start, end) - starting and ending index 
+slice(-index) - extrects indexes from last
+if start is greater than index range it returns empty array
+if end is greater than index range it returns array upto end
+
+
+
+
+2. splice alters the original array
+splice() - gives empty array
+splice(start) - gives the array from start index specified upto end
+if start index is greater than the length of array it returns empty array
+splice(start, end) - gives array from start index to end index
+splice(start, deletecount, item) - replace item of start with the deletecount index
+example: const months = ['Jan', 'March', 'April', 'June'];
+         months.splice(4, 1, 'May');   // replaces 1 element at index 4
+	 console.log(months);   // Array ["Jan", "March", "April", "May"]
+
+splice(start, deletecount, item1, item2, item....) - replace the number of specified deletecount with the given items
+
+
+
+
+3. reverse() alters the original array
+reverses the array(first becomes the last and last becomes the first)
+reversing array like object - in that we need to mention the length of the key value pairs along with the object pairs
+examples:  
+const obj = {0: 1, 1: 2, 2: 3, length: 3};
+console.log(obj); // {0: 1, 1: 2, 2: 3, length: 3}
+
+Array.prototype.reverse.call(obj); //same syntax for using apply()
+console.log(obj); // {0: 3, 1: 2, 2: 1, length: 3}
+
+
+
+4. concat() used to merge two or more array and it doen not alter the original array instead returns new array
+concat() - returns original array
+cancat(value)
+conact(value, value.......)
+
+
+
+5. join() concatenates all elements in an array into a new string seperated by any specified seperator
+join() - joins elements without anything      a.join();      // 'Wind,Water,Fire'
+join(seperator) - join the element with the seperator as mentioned
+join('') - joins the string without anything     a.join('');    // 'WindWaterFire'
+
+
+
+
+
+/////the new at method
+at(index) works same as array[] 
+example:
+const colors = ['red', 'green', 'blue'];
+
+// Using length property
+const lengthWay = colors[colors.length-2];
+console.log(lengthWay); // Logs: 'green'
+
+// Using slice() method. Note an array is returned
+const sliceWay = colors.slice(-3, -1);
+console.log(sliceWay[1]); // Logs: 'green'
+
+// Using at() method
+const atWay = colors.at(-2);
+console.log(atWay); // Logs: 'green'
+
+
+
+
+
+/////looping arrays.. foreach
+we cannot break the foreach loop that is break and continue do not work in foreach loop
+so foreach always loops over the entire array
+
+the foreach() method executes provided function once for each array element
+
+syntax:
+// Arrow function
+forEach((element) => { /* ... */ })
+forEach((element, index) => { /* ... */ })
+forEach((element, index, array) => { /* ... */ })
+
+// Callback function
+forEach(callbackFn)
+forEach(callbackFn, thisArg)
+
+// Inline callback function
+forEach(function(element) { /* ... */ })
+forEach(function(element, index) { /* ... */ })
+forEach(function(element, index, array){ /* ... */ })
+forEach(function(element, index, array) { /* ... */ }. thisArg)
+
+in foreach the first parameteris always the current element, second is always the current index and third is the looping array
+
+example:
+const arraySparse = [1, 3,, 7];
+let numCallbackRuns = 0;
+
+arraySparse.forEach((element) => {
+  console.log({ element });
+  numCallbackRuns++;
+});
+
+console.log({ numCallbackRuns });
+
+// 1
+// 3
+// 7
+// numCallbackRuns: 3
+// comment: as you can see the missing value between 3 and 7 didn't invoke callback function.
+
+
+
+
+
+/////foreach with maps and sets
+works same for maps and sets with the same 3 parameters the value the key and the map or set
+
+for map:
+const formap = new Map([['first', 'second'], ['third', 'forth']]);
+formap.forEach(function(value, key, map) {
+	console.log(`${key}: ${value}`);
+});                         
+        // first: second
+	   third: forth
+
+
+for set:
+const formap = new Set(['first', 'second', 'third', 'forth']);
+formap.forEach(function(value, key, map) {
+	console.log(`${key}: ${value}`);
+});
+        // first: first
+ 	   second: second
+ 	   third: third
+ 	   forth: forth
+
+here in set there is no such thing as key so in a parameter key is only the value so we can pass '_' as a throwaway variable
+
+
+
+
+/////data transformation(map, filter, reduce)
+
+MAP METHOD is another method to loop over arrays kind of similar to forEach method but map creates a brand new array based on original array
+
+so map takes an array loops over that array and apply condition to each array element
+basically it maps the values of the original array to new array and so it's called map method
+map are more useful than forEach method
+
+example:
+const number = [1, 2, 3];
+const ans = number.map(fn);
+
+function fn(n) {
+	return n * 2;
+}
+
+console.log(ans);      // (3) [2, 4, 6]
+
+
+
+FILTER METHOD is used to filter for elements in original array which satisfy certain condition
+so basically filter returns new array containing array elements that passed specified test condition
+
+example:
+const number = [10, 40, 35, 18, 33, 19, 90];
+
+const ans = number.filter(function(n) {
+	return n >= 20;
+});
+
+console.log(number);     // (7) [10, 40, 35, 18, 33, 19, 90]
+console.log(ans);        // (4) [40, 35, 33, 90]
+
+
+
+REDUCE METHOD reduces all array elements down to single value(imagine a snowball that keeps getting bigger and bigger as it rolls down a hill)
+
+example:
+const list = [10, 20, 30, 40];
+
+const ans = list.reduce((acc, current) => acc + current, 0);   [here 0 is the initial accumulator value if we write there 10 then ans will be 100]
+
+console.log(list);         // (4) [10, 20, 30, 40]
+console.log(ans);          // 100
+
+
+
