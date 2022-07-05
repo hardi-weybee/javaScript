@@ -194,3 +194,182 @@ console.log(ans);          // 100
 
 
 
+
+/////chaining method
+use map, filter and reduce methods in chain 
+
+
+
+
+/////find method
+find method is bit similar to filter method but there are 2 differences
+- filter method returns all the elements that match the condition while find only returns the first occurence
+- filter method returns a new array while find only returns the element itself
+
+
+
+/////findindex method
+finds the index of the element that we mentioned or index of the condition that we mentioned
+similar to the indexOf method but in findIndex method we can pass any complex condition and it will give index if the condition is true
+
+
+
+
+
+/////some and every method
+similar to include method but include checks for equality and only for specified element but
+
+const a = [1, 2, 3, 4, 5]
+
+// EQUALITY
+console.log(a.includes(30));     // false
+
+some method checks for a specified condition 
+// SOME: CONDITION
+const x = a.some(z => z > 2);
+console.log(x);                    // true
+
+every method is same as some the only difference is that every method only returns true if all the elements satisfies the specified condition
+// EVERY
+const p = a.every(z => z > 2);
+console.log(p);                    // false
+
+
+
+
+
+/////flat and flatMap
+flat method flats the array in one single array if we have nested arrays 
+but the flat method only goes one level deep
+example:
+const a = [[1, 2], [3, 4, 5], [6, 7, 8, 9, 10]];
+console.log(a.flat());               // (10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+const a = [[1, 2], [3, [4, 5]], [6, 7, [8, 9], 10]];
+console.log(a.flat());               // (8) [1, 2, 3, Array(2), 6, 7, Array(2), 10]
+
+but we can go any level deep by mentioning the level of nesting to the flat method
+const a = [[1, 2], [3, [4, 5]], [6, 7, [8, 9], 10]];
+console.log(a.flat(2));              // (10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+real example:
+const a = [{name: "hardi", value: "1", rating: [10, 30, 90, -50, 70, 55, -20, -33, 19, -5]}];
+const sum = a.map(x => x.rating);    
+console.log(sum);                     // [Array(10)]
+
+const sum1 = sum.flat();
+console.log(sum1);                    // (10) [10, 30, 90, -50, 70, 55, -20, -33, 19, -5]
+
+const sum2 = sum1.reduce((acc, ele) => acc + ele, 0);
+console.log(sum2);                    // 166
+
+--------------OR----------------------
+const sum = a.map(x => x.rating).flat().reduce((acc, ele) => acc + ele, 0);
+console.log(sum);                     // 166
+
+
+
+flatMap method basically combines the flat and map method but flatMap method only goes one level deep
+so if there is need to go many level deep then we need to use the flat method instead
+the same real example:
+const sum = a.flatMap(x => x.rating).reduce((acc, ele) => acc + ele, 0);
+console.log(sum);                     // 166
+
+
+
+
+
+/////sorting array
+sort method sorts the array element default sorting is in ascending order
+it first converts the element into string if they are not and then do the sorting
+example:
+const months = ['March', 'Jan', 'Feb', 'Dec'];
+months.sort();
+console.log(months);             //  Array ["Dec", "Feb", "Jan", "March"]
+
+const array1 = [1, 30, 4, 21, 100000];
+array1.sort();
+console.log(array1);             // Array [1, 100000, 21, 30, 4]
+
+
+so to actually sort numbers we need to specify condition
+  return < 0, A, B (keep order)
+  return > 0, B, A (switch order)
+
+if a - b is then sort ascending
+if b - a is then sort descending
+
+
+
+
+/////more ways of creating and filling arrays
+we can declare the array as
+const x = new Array(7);
+console.log(x);             // this will create an array of 7 elements but the array will be empty
+
+so in this situation any other methods such as map or filter will simply not work, the only fill method will be useful
+fill method is bit similar to slice method
+x.fill(1, 3, 5);  // it will fill the array with 1 from starting index 3 upto 5
+x.fill(1);        // it will fill the whole array with 1
+console.log(x);
+
+now to get the array like [1,2,3,4,5,6,7] we can use the Array.from method
+here Array is a function and the from is the method 
+we can also get the above result of all array elements as 1
+const y = Array.from({length:7}, () => 1);
+console.log(y);               // [1,1,1,1,1,1,1]
+
+const z = Array.from({length:7}, (_, i) => i +1);        here the _ is the throwaway argument as we do not need the current element in here
+console.log(z);               // [1,2,3,4,5,6,7]
+
+
+
+
+/////which array method to use
+
+1. mutate original array: 
+   add to array - .push()    - end
+                  .unshift() - start
+
+   remove from array - .pop()     - end
+                      .shift()   - start
+                      .splice()  - array
+
+   other - .reverse(), .sort(), .fill()
+
+2. new array:
+   .map() - loops over array
+   .filter() - filters by given condition
+   .slice() - gives portion of array
+   .concat() - adds two or more array
+   .flat() - flats nested array into single array
+   .fatMap() - uses flat and map method combinely
+
+3. array index:
+   .indexOf() - gives output based on value
+   .findIndex() - gives output based on given condition
+
+4. array element:
+   .find() - gives the array element based on the given condition
+
+5. to know if array includes:(all returns boolean value) 
+   .includes() - gives output based on value
+   .some() - gives output based on given condition(if any or some element of array satisfy the condition)
+   .every() - gives output based on given condition(if every element of array satisfy the condition)
+
+6. a new string:
+   .join() - output based on specified separator
+
+7. to transform to value:
+   .reduce() - based on accumulator(boils down to single value of any type as string or number...)
+
+8. to loop array:
+   .forEach() - based on callback it doesnot create new array instead just loops over it
+
+
+
+
+
+
+
+filter map reduce sort some forEach includes indexOf slice splice
