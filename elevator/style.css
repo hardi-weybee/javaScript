@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  background: #006266;
+  width: 80%;
+  height: 80%;
+  text-align: center;
+  justify-content: space-evenly;
+  border-radius: 10px;
+}
+.container .all {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 90%;
+}
+.container .all .first, .container .all .second, .container .all .third {
+  position: relative;
+  width: 20%;
+  height: 90%;
+  background: #b1e2ff;
+  margin: 20px 0;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+}
+.container .all .first .firstElevator, .container .all .first .secondElevator, .container .all .first .thirdElevator, .container .all .second .firstElevator, .container .all .second .secondElevator, .container .all .second .thirdElevator, .container .all .third .firstElevator, .container .all .third .secondElevator, .container .all .third .thirdElevator {
+  position: absolute;
+  bottom: 0px;
+  background-color: #71797E;
+  height: 90px;
+  color: #ffffff;
+  overflow: hidden;
+  width: 50%;
+}
+.container .all .number {
+  width: 20%;
+  height: 90%;
+  background: #006266;
+  position: relative;
+  margin: 20px 0;
+}
+.container .all .number .five, .container .all .number .four, .container .all .number .three, .container .all .number .two, .container .all .number .one {
+  display: flex;
+  height: 20%;
+  justify-content: start;
+  align-items: center;
+}
+.container .all .number .five .floor, .container .all .number .four .floor, .container .all .number .three .floor, .container .all .number .two .floor, .container .all .number .one .floor {
+  background: black;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin: 0 8px 0 0;
+}
+.container .all .number .five .floor label, .container .all .number .four .floor label, .container .all .number .three .floor label, .container .all .number .two .floor label, .container .all .number .one .floor label {
+  color: white;
+  font-size: larger;
+  line-height: 45px;
+}
+.container .all .number .five button, .container .all .number .four button, .container .all .number .three button, .container .all .number .two button, .container .all .number .one button {
+  border: none;
+  background: none;
+}
+.container .all .number .five button img, .container .all .number .four button img, .container .all .number .three button img, .container .all .number .two button img, .container .all .number .one button img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.container .row {
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.container .row .firstBtn, .container .row .secondBtn, .container .row .thirdBtn {
+  width: 20%;
+}
+.container .row .firstBtn .switch, .container .row .secondBtn .switch, .container .row .thirdBtn .switch {
+  position: relative;
+  display: inline-block;
+  width: 43px;
+  height: 22px;
+}
+.container .row .firstBtn .switch input, .container .row .secondBtn .switch input, .container .row .thirdBtn .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.container .row .firstBtn .switch .slider, .container .row .secondBtn .switch .slider, .container .row .thirdBtn .switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.container .row .firstBtn .switch .slider:before, .container .row .secondBtn .switch .slider:before, .container .row .thirdBtn .switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+.container .row .firstBtn .switch input:checked + .slider, .container .row .secondBtn .switch input:checked + .slider, .container .row .thirdBtn .switch input:checked + .slider {
+  background-color: #2196F3;
+}
+.container .row .firstBtn .switch input:checked + .slider:before, .container .row .secondBtn .switch input:checked + .slider:before, .container .row .thirdBtn .switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+.container .row .word {
+  width: 20%;
+  font-size: 25px;
+  color: white;
+  display: flex;
+}
+
+.firstElevator > div, .secondElevator > div, .thirdElevator > div {
+  position: relative;
+  top: -279px;
+}
+
+.firstElevator > div > div, .secondElevator > div > div, .thirdElevator > div > div {
+  height: 70px;
+  position: relative;
+}/*# sourceMappingURL=style.css.map */

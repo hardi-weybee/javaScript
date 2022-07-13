@@ -1,0 +1,119 @@
+*{
+    width: 90%;
+    margin: auto;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.adder {
+    width: auto;
+    margin-top: 10px;
+    .task {
+        border: 1px solid rgb(9, 95, 194);
+        width: -webkit-fill-available;
+        height: 25px;
+        font-size: large;
+    }
+}
+
+.function {
+    display: flex;
+    margin: 50px;
+    width: auto;
+    justify-content: center;
+    .add {
+        width: 50px;
+        margin: 0;
+        cursor: pointer;
+        background: rgb(29, 118, 221);
+        border: 2px solid rgb(9, 95, 194);
+        
+        :active {
+            background: white;
+        }
+        
+    }
+    
+    .find {
+        width: 50px;
+        margin: 0 10% 0 50px;
+        cursor: pointer;
+        background: rgb(29, 118, 221);
+        border: 2px solid rgb(9, 95, 194);
+        
+        :active {
+            background: white;
+        }
+    }
+    
+}
+
+.nothing {
+    width: 1px;
+    border-right: 2px solid rgb(9, 95, 194);
+    margin: 0;
+}
+
+select {
+    width: auto;
+    margin: 0 0 0 7%;
+    font-size: large;
+    cursor: pointer;
+}
+
+.tab{
+    display: flex;
+    border-style: none;
+    margin: 0 0 0 5%;
+    width: 30%;
+    
+    button {
+        background: rgb(29, 118, 221);
+        border: 2px solid rgb(1, 99, 228);
+        box-shadow: rgb(109, 196, 255);
+        margin: 0;
+        width: max-content;
+        padding: 0 20px;
+        cursor: pointer;
+        font-size: large;
+        
+        .all {
+            background: white;
+        }
+    }
+}
+
+
+
+@media only screen and(max-width: 818px) {
+    .function {
+        height: 40px;
+        .add {
+            width: auto;
+            // height: auto;
+            margin: 0;
+            cursor: pointer;
+            background: rgb(29, 118, 221);
+            border: 2px solid rgb(9, 95, 194);
+
+            img {
+                width: 20px;
+                margin: 0;
+            }
+        }
+        .find {
+            margin: 0 5% 0 2%;
+            width:  -webkit-fill-available;;
+            cursor: pointer;
+            background: rgb(29, 118, 221);
+            border: 2px solid rgb(9, 95, 194);
+            
+            img {
+                width: -webkit-fill-available;
+            }
+        }
+    }
+}

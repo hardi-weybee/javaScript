@@ -140,3 +140,41 @@ console.log(dogs.filter(okay));
 
 const sorted = dogs.slice().sort((a, b) => a.recommendedFood - b.recommendedFood);
 console.log(sorted);
+
+
+
+
+const arr1 = [
+    {id: 1, name: "fenny"}, 
+    {id: 2, name: "hemangi"}, 
+    {id: 3, name: "hardi"}, 
+    {id: 4, name: "nishita"}
+]
+
+const arr2 = [
+    {id: 1, hobby: "sleeping", created_at: "2021-05-15"}, 
+    {id: 2, hobby: "eating", created_at: "2020-05-05"},
+    {id: 3, hobby: "dancing", created_at: "2022-05-15"}, 
+    {id: 4, hobby: "travel", created_at: "2021-05-15"}, 
+    {id: 1, hobby: "drawing", created_at: "2021-05-15"},
+    {id: 1, hobby: "badminton", created_at: "2020-05-15"},
+    {id: 2, hobby: "sketch", created_at: "2022-05-15"},
+    {id: 4, hobby: "designing", created_at: "2021-05-15"},
+    {id: 3, hobby: "art & creaft", created_at: "2021-05-15"},
+    {id: 2, hobby: "singing", created_at: "2020-05-15"}
+]
+
+const res = arr1.map(el => {
+    
+    const ans = arr2
+    .filter(el1 => el.id === el1.id && new Date(el1.created_at).getFullYear() != 2022)
+    .flatMap(a => a.hobby)
+    .join()
+    
+    const a = {
+        of : el.name,
+        hobbies : ans
+    }
+    return a;
+});
+console.log(res);

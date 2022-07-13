@@ -1,0 +1,335 @@
+/* GLOBAL STYLES */
+:root {
+    --active: #b891ce;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: white;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 3%;
+}
+
+#app {
+    // height: 100vh;
+    width: 100%;
+    margin: auto;
+}
+
+.standard {
+    background-color: #c9a9b9;
+    color: #1a150e;
+    transition: 0.3s linear;
+    overflow: hidden;
+}
+
+.light {
+    background-color: #ecd2d2;
+    color: #1a150e;
+    transition: 0.3s linear;
+    overflow: hidden;
+}
+
+#header, .input_container {
+    margin: 0;
+    width: 100%;
+}
+
+#header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: large;
+    width: 100%;
+
+    #title {
+        text-transform: uppercase;
+    }
+}
+
+.flexrow-container {
+    align-items: center;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 3%;
+}
+
+.theme-selector {
+    border: 1px solid #d1dae3;
+    border-radius: 25%;
+    height: 35px;
+    margin: 0 8px;
+    transition: tranform 150ms ease-in-out, box-shadow 200ms ease-in-out;
+    width: 35px;
+}
+
+.theme-selector:hover { 
+    box-shadow: white 0 0 8px;
+    cursor: pointer;
+}
+
+.theme-selector:active {
+    transform: scale(0.95);
+}
+
+.light-theme {
+    background-color: #ecd2d2;
+}
+
+.standard-theme {
+    background-color: #c49afb;
+}
+
+.input_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+    font-size: large;
+
+    .input {
+        font-size: 18px;
+        height: 40px;
+        width: 80%;
+        padding-left: 20px;
+        outline: none;
+        border-radius: 15px;
+        border: 2px solid var(--active);
+        font-family: Arial, Helvetica, sans-serif;
+        display: none;    
+        box-shadow: var(--active) 0 0 10px;
+    }
+}
+
+.no {
+    width: 100%;
+
+    h3 {
+        margin: 20px 0 20px 10%;
+    }
+}
+
+.list_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .ul {
+        padding: 20px 20px 0 20px;
+        list-style: none;
+        width: 80%;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid gray;
+
+        .itemText {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            color: black;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            height: fit-content;
+            
+            .check {
+                margin-right: 10px;
+            }
+
+            .textedit {
+                width: auto;
+            }
+        }
+
+        .itemBtn {
+            display: flex;
+            margin-top: -10px;
+
+            .trashBtn, .editBtn {
+                background: none;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                color: black;
+                margin: 10px;
+    
+                img {
+                    height: 20px;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+.functions {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+
+    .listFunctions {
+        display: flex;
+        width: 80%;
+        margin: auto;
+        justify-content: center;
+        
+        .addBtn, .searchBtn {
+            width: 50px;
+            padding: 5px;
+            margin-left: 3%;
+            border: 2px solid var(--active);
+            background-color: var(--active);
+            color: black;
+            cursor: pointer;
+            
+            img {
+                width: 20px;
+                color: white;
+            }
+        }
+        .active {
+            background-color: white;
+        }
+
+        .line {
+            background-color: var(--active);
+            border: 1px solid var(--active);
+            margin: 0 50px;
+        }
+
+        select.drop {
+            width: 20%;
+            padding: 7px;
+            border: 1px solid black;
+            font-size: large;
+        }
+        
+        select.sort {
+            width: 20%;
+            padding: 7px;
+            margin-left: 2%;
+            border: 1px solid black;
+            font-size: large;
+        }
+        
+        .groupBtn {
+            display: flex;
+            border: 2px solid var(--active);
+            margin-left: 5%;
+            background-color: var(--active);
+            box-shadow: var(--active) 0 0 10px;
+
+            .first, .second, .third{
+                padding: 7px 10px;
+                background: none;
+                font-size: large;
+                color: black;
+                cursor: pointer;
+                border: none; 
+            }
+
+            .active {
+                background-color: white;
+            }
+            
+        }
+    }
+}
+
+
+@media only screen and(max-width: 966px) {
+    .input_container {
+        width: 100%;
+    }
+
+    .functions {
+        width: 100%;
+
+        .listFunctions {
+            width: 90%;
+            display: flex;
+            justify-content: center;
+
+            .line {
+                margin: 0 20px;
+            }
+
+            select.drop {
+                padding: 7px;
+                border: 1px solid black;
+                background: none;
+                font-size: large;
+            }
+
+            select.sort {
+                margin-left: 20px;
+                padding: 7px;
+                border: 1px solid black;
+                background: none;
+                font-size: large;
+            }
+        }
+    }
+}
+
+
+@media only screen and(max-width: 660px) {
+    .input_container {
+        width: 100%;
+    }
+
+    .no {
+        h3 {
+            margin: 10px 0 0 50px;
+        }
+    }
+
+    .functions {
+        width: 100%;
+        
+        .listFunctions {
+            width: 80%;
+            margin: 0;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            .addBtn, .searchBtn {
+                margin: auto 10px auto 0;
+            }
+            
+            .line {
+                height: 35px;
+                margin: 10px;
+            }
+
+            select.drop {
+                margin: auto 5px auto 0;
+                font-size: small;
+                padding: 7px 0;
+            }
+
+            select.sort {
+                margin: auto 5px auto 5px;
+                font-size: small;
+                padding: 7px 0;
+            }
+
+            .groupBtn {
+                margin: 20px auto;
+            }
+        }
+    }
+}

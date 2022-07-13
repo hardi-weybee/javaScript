@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9cd23365e3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="todo.css" />
+    <title>Todo</title>
+</head>
+<body>
+    <div id="app">
+        <div id="header">
+            <div class="flexrow-container">
+                <div class="light-theme theme-selector"></div>
+                <div class="standard-theme theme-selector"></div>
+            </div>
+            <h1 id="title">todo list</h1>
+        </div>
+
+        <div class="input_container">
+            <input type="text" id="myInput" class="input">
+        </div>
+        
+        <div class="no">
+            <h3>No data found !</h3>
+        </div>
+
+        <div class="list_container">
+            <div class="ul" id="all">
+                <div class="itemText" id="text">
+                    <input type="checkbox" class ="check">aaa
+                </div>
+                <div class="itemBtn">
+                    <button class="editBtn"><img src="images/edit.png"></button>
+                    <button class="trashBtn"><img src="images/delete.png"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="functions">
+            <div class="listFunctions">
+                <button class="addBtn" id="myAddBtn"><img src="images/add.png"></button>
+                <button class="searchBtn"><img src="images/search.png"></button>
+
+                <div class="line"></div>
+                
+                <select class="drop" id="dropdown">
+                    <option value="action">Action</option>
+                    <option value="deleteSelected">Delete Selected</option>
+                    <option value="selectAll">Select All</option>
+                    <option value="unselectAll">Unselect All</option>
+                </select>
+
+                <select class="sort" id="dropdown1">
+                    <option value="sort">Sort</option>
+                    <option value="asc">A to Z</option>
+                    <option value="desc">Z to A</option>
+                    <option value="old">Oldest</option>
+                    <option value="newe">Newest</option>
+                </select>
+
+                <div class="groupBtn">
+                    <button class="first active">All</button>
+                    <button class="second">Active</button>
+                    <button class="third">Completed</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="todo.js"></script>
+</body>
+</html>
+
+
+
+
+
+
