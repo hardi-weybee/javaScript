@@ -68,14 +68,13 @@ body {
   width: 30px;
   cursor: pointer;
 }
-.flexrow-container .tooltiptext {
+.flexrow-container .tooltip {
   visibility: hidden;
   width: 120px;
   color: black;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-  /* Position the tooltip */
   position: absolute;
   z-index: 1;
   top: 100%;
@@ -83,7 +82,7 @@ body {
   margin-left: -60px;
 }
 
-.flexrow-container:hover .tooltiptext {
+.flexrow-container:hover .tooltip {
   visibility: visible;
 }
 
