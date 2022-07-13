@@ -29,6 +29,7 @@ body {
     color: #1a150e;
     transition: 0.3s linear;
     overflow: hidden;
+    display: none;
 }
 
 .light {
@@ -36,6 +37,7 @@ body {
     color: #1a150e;
     transition: 0.3s linear;
     overflow: hidden;
+    display: none;
 }
 
 #header, .input_container {
@@ -57,38 +59,64 @@ body {
 }
 
 .flexrow-container {
-    align-items: center;
+    position: relative;
+    display: inline-block;
     align-self: flex-end;
-    display: flex;
-    justify-content: space-around;
     margin-right: 3%;
+
+    input {
+        border: none;
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+    }
+
+    .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        color: black;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        left: 50%;
+        margin-left: -60px;
+      }
+      
+}
+.flexrow-container:hover .tooltiptext {
+    visibility: visible;
 }
 
-.theme-selector {
-    border: 1px solid #d1dae3;
-    border-radius: 25%;
-    height: 35px;
-    margin: 0 8px;
-    transition: tranform 150ms ease-in-out, box-shadow 200ms ease-in-out;
-    width: 35px;
-}
+// .theme-selector {
+//     border: 1px solid #d1dae3;
+//     border-radius: 25%;
+//     height: 35px;
+//     margin: 0 8px;
+//     transition: tranform 150ms ease-in-out, box-shadow 200ms ease-in-out;
+//     width: 35px;
+// }
 
-.theme-selector:hover { 
-    box-shadow: white 0 0 8px;
-    cursor: pointer;
-}
+// .theme-selector:hover { 
+//     box-shadow: white 0 0 8px;
+//     cursor: pointer;
+// }
 
-.theme-selector:active {
-    transform: scale(0.95);
-}
+// .theme-selector:active {
+//     transform: scale(0.95);
+// }
 
-.light-theme {
-    background-color: #ecd2d2;
-}
+// .light-theme {
+//     background-color: #ecd2d2;
+// }
 
-.standard-theme {
-    background-color: #c49afb;
-}
+// .standard-theme {
+//     background-color: #c49afb;
+// }
 
 .input_container {
     width: 100%;

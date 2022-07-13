@@ -13,9 +13,7 @@ const standardTheme = document.querySelector('.standard-theme');
 
 const select = document.getElementById('dropdown');
 const sort = document.getElementById('dropdown1');
-
-lightTheme.addEventListener('click', () => changeTheme('light'));
-standardTheme.addEventListener('click', () => changeTheme('standard'));
+const changeTheme = document.getElementById('favcolor');
 
 let todoList = [];
 let ids = 0;
@@ -25,8 +23,9 @@ let currentId = 0;
 let editflag = false;
 let taskSorted;
 
-function changeTheme(color) {
-    document.body.className = color;
+function theme() {
+    console.log(changeTheme.value);
+    document.body.style.backgroundColor = changeTheme.value;
 }
 
 input.addEventListener('keyup', function(e) {
@@ -151,6 +150,7 @@ searchBtn.addEventListener('click', () => {
 
     addBtn.classList.remove('active');
     searchBtn.classList.add('active');
+    // input.value = '';
 });
 
 
