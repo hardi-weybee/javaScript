@@ -59,12 +59,12 @@ function movement(liftNo, no) {
 
 
 function up(no) {
-    const floorDetail = liftDetail.map(a => a.maintenance ? 100000 : a.floor);
+    const floorDetail = liftDetail.map(a => a.maintenance ? 10000000 : a.floor);
     movement(closest(floorDetail, no), no);
 }
 
 function down(no) {
-    const floorDetail = liftDetail.map(a => a.maintenance ? 100000 : a.floor);
+    const floorDetail = liftDetail.map(a => a.maintenance ? 10000000 : a.floor);
     movement(closest(floorDetail, no), no);
 }
 
