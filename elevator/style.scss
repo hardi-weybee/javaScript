@@ -6,16 +6,21 @@
 
 body {
     background-color: white;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+    width: 80%;
+    margin: auto;
     // padding-top: 3%;
+}
+
+.heading {
+    margin: 25px auto;
+    text-transform: capitalize;
+    font-size: 30px;
 }
 
 .container {
     background: #006266;
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 650px;
     text-align: center;
     justify-content: space-evenly;
     border-radius: 10px;
@@ -29,21 +34,22 @@ body {
         .first, .second, .third {
             position: relative;
             width: 20%;
-            height: 90%;
+            height: 500px;
             background: #b1e2ff;
-            margin: 20px 0;
+            margin: 30px 0;
             top: 0px;
             display: flex;
             justify-content: center;
     
-            .firstElevator, .secondElevator, .thirdElevator {    
+            .elevator {    
                 position: absolute;
                 bottom: 0px;
                 background-color: #71797E;
-                height: 90px;
                 color: #ffffff;
                 overflow: hidden;
                 width: 50%;
+                height: 100px;
+                transition: 0.9s;
             }
         }
     
@@ -56,7 +62,7 @@ body {
 
             .five, .four, .three, .two, .one {
                 display: flex;
-                height: 20%;
+                height: 100px;
                 justify-content: start;
                 align-items: center;
 
@@ -90,7 +96,7 @@ body {
 
     .row {
         width: 100%;
-        height: 5%;
+        height: 6%;
         display: flex;
         justify-content: space-evenly;
 
@@ -159,12 +165,12 @@ body {
 
 }
 
-.firstElevator > div, .secondElevator > div, .thirdElevator > div {
+.elevator > div {
     position: relative;
     top: -279px;
 
 }
-.firstElevator > div > div, .secondElevator > div > div, .thirdElevator > div > div {
+.elevator > div > div {
     height: 70px;
     position: relative;
 }

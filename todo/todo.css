@@ -23,22 +23,6 @@ body {
   margin: auto;
 }
 
-.standard {
-  background-color: #c9a9b9;
-  color: #1a150e;
-  transition: 0.3s linear;
-  overflow: hidden;
-  display: none;
-}
-
-.light {
-  background-color: #ecd2d2;
-  color: #1a150e;
-  transition: 0.3s linear;
-  overflow: hidden;
-  display: none;
-}
-
 #header, .input_container {
   margin: 0;
   width: 100%;
@@ -293,4 +277,7 @@ body {
   .functions .listFunctions .groupBtn {
     margin: 20px auto;
   }
+}
+.whiteTheme {
+  color: white;
 }/*# sourceMappingURL=todo.css.map */

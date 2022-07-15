@@ -10,6 +10,8 @@ const secondBtn = document.querySelector('.second');
 const thirdBtn = document.querySelector('.third');
 const lightTheme = document.querySelector('.light-theme');
 const standardTheme = document.querySelector('.standard-theme');
+// const editt = document.querySelector('.editBtn');
+// const textedit = document.querySelectorAll
 
 const select = document.getElementById('dropdown');
 const sort = document.getElementById('dropdown1');
@@ -23,9 +25,38 @@ let currentId = 0;
 let editflag = false;
 let taskSorted;
 
+function change(color) {
+    const hex = color.replace('#', '');
+    const c_r = parseInt(hex.substr(0, 2), 16);
+    const c_g = parseInt(hex.substr(2, 2), 16);
+    const c_b = parseInt(hex.substr(4, 2), 16);
+    const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+    return brightness > 155;
+}
+
 function theme() {
-    console.log(changeTheme.value);
     document.body.style.backgroundColor = changeTheme.value;
+    console.log(document.querySelector('.textedit'))
+    if(change(changeTheme.value) == !true) {
+        document.getElementById('title').style.color = 'white';
+        document.getElementsByTagName('h3')[0].style.color = 'white';
+        for(let i=0; i<todoList.length; i++) {
+            document.querySelectorAll('.textedit')[i].style.color = 'white';
+            document.querySelectorAll('.editBtn')[i].innerHTML = '<img src="images/edit1.svg"></img>';
+            document.querySelectorAll('.trashBtn')[i].innerHTML = '<img src="images/delete1.svg"></img>';
+        }
+
+    } else {
+        document.getElementById('title').style.color = 'black';
+        document.getElementsByTagName('h3')[0].style.color = 'black';
+        for(let i=0; i<todoList.length; i++) {
+            document.querySelectorAll('.textedit')[i].style.color = 'black';
+            document.querySelectorAll('.editBtn')[i].innerHTML = '<img src="images/edit.svg"></img>';
+            document.querySelectorAll('.trashBtn')[i].innerHTML = '<img src="images/delete.svg"></img>';
+        }
+    }
+    // change(changeTheme.value)
+    // console.log(changeTheme.value);
 }
 
 input.addEventListener('keyup', function(e) {
@@ -78,6 +109,7 @@ const displayTodos = (todoList) => {
         no.style.display = 'block';
     } else {
         no.style.display = 'none';
+        
         todoList.forEach(items => {
             // console.log(currentId);
             const html = 
@@ -88,8 +120,8 @@ const displayTodos = (todoList) => {
                 </div>
     
                 <div class = "itemBtn">
-                    <button class="editBtn" onclick="editItem(${items.id})"><img src="images/edit.png"></button>
-                    <button class="trashBtn" onclick="removeItem(${items.id})"><img src="images/delete.png"></button>
+                    <button class="editBtn" onclick="editItem(${items.id})"><img src="images/edit.svg"></button>
+                    <button class="trashBtn" onclick="removeItem(${items.id})"><img src="images/delete.svg"></button>
                 </div>
             </div>`;
             // console.log(editflag);
@@ -97,6 +129,7 @@ const displayTodos = (todoList) => {
             container.insertAdjacentHTML('beforeend', html);
         })
     }
+    theme();
 }
 displayTodos(todoList);
 
