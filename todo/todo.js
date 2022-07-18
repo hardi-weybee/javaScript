@@ -36,20 +36,21 @@ function change(color) {
 
 function theme() {
     document.body.style.backgroundColor = changeTheme.value;
-    console.log(document.querySelector('.textedit'))
+    // console.log(document.querySelector('.textedit'))
+    let ss = document.querySelectorAll('.textedit').length;
+    // console.log(ss);
     if(change(changeTheme.value) == !true) {
         document.getElementById('title').style.color = 'white';
         document.getElementsByTagName('h3')[0].style.color = 'white';
-        for(let i=0; i<todoList.length; i++) {
+        for(let i=0; i<ss; i++) {
             document.querySelectorAll('.textedit')[i].style.color = 'white';
             document.querySelectorAll('.editBtn')[i].innerHTML = '<img src="images/edit1.svg"></img>';
             document.querySelectorAll('.trashBtn')[i].innerHTML = '<img src="images/delete1.svg"></img>';
         }
-
     } else {
         document.getElementById('title').style.color = 'black';
         document.getElementsByTagName('h3')[0].style.color = 'black';
-        for(let i=0; i<todoList.length; i++) {
+        for(let i=0; i<ss; i++) {
             document.querySelectorAll('.textedit')[i].style.color = 'black';
             document.querySelectorAll('.editBtn')[i].innerHTML = '<img src="images/edit.svg"></img>';
             document.querySelectorAll('.trashBtn')[i].innerHTML = '<img src="images/delete.svg"></img>';
@@ -326,8 +327,8 @@ thirdBtn.addEventListener('click', () => {
     console.log(complete);
     displayTodos(complete);
 
+    thirdBtn.classList.add('active');
     firstBtn.classList.remove('active');
     secondBtn.classList.remove('active');
-    thirdBtn.classList.add('active');
 });
 displayTodos(todoList);
