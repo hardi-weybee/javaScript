@@ -1,6 +1,7 @@
 'use strict';
 
-const elevator = document.getElementsByClassName('elevator');
+
+let elevator = document.getElementsByClassName('elevator');
 const toggle = document.getElementsByClassName('toggle');
 const buttons = document.getElementsByTagName('button');
 const all = document.getElementsByClassName('all')[0];
@@ -9,6 +10,9 @@ const container = document.querySelector('.container');
 console.log(elevator);
 console.log(toggle);
 
+
+// let lift = Number(prompt("enter the number of lifts u want"));
+// let floorNo = Number(prompt("enter the number of floors u want"));
 let lift = 3;
 let floorNo = 5;
 let liftDetail = [];
@@ -17,13 +21,13 @@ let liftDetail = [];
 function maintain(i) {
     if(toggle[i].checked) {
         liftDetail[i].maintenance = true;
-        liftDetail[i].floor = 1;
         movement(i, 1);
         elevator[i].style.border = '2px solid red';
         alert(`whops !! Elevator ${i + 1} is under maintenence`);
     } else {
         liftDetail[i].maintenance = false;
         elevator[i].style.border = 'none';
+        elevator[i].style.border = '2px solid black';
     }
 
     if(liftDetail.every(a => a.maintenance)) {
@@ -36,36 +40,61 @@ function maintain(i) {
 }
 
 function movement(liftNo, no) {
-    elevator[liftNo].style.top = `${floorNo - no}00`;
-    elevator[liftNo].innerHTML = no;
+
+    let x = 0;
+    let number = liftDetail[liftNo].floor;
+    let floorheight = 100;
+    let id = null;   
+    let pos = `${floorNo - liftDetail[liftNo].floor}00`;
+    const dest = `${floorNo - no}00`
     liftDetail[liftNo].floor = no;
 
-    // let id = null;   
-    // let pos = `${floorNo - liftDetail[liftNo].floor}00`;
-    // const dest = `${floorNo - no}00`
-    // clearInterval(id);
-    // id = setInterval(frame, 5);
-    // function frame() {
-    //     if (pos == dest) {
-    //     clearInterval(id);
-    //     } else {
-    //     pos--; 
-    //     elevator[liftNo].style.top = pos + "px"; 
-    //     }
-    // }
-    // elevator[liftNo].innerHTML = no;
-    // liftDetail[liftNo].floor = no;
+    clearInterval(id);
+    id = setInterval(frame, 5);
+    document.getElementsByClassName('door')[liftNo].style.left = "0";
+    
+    
+    function frame() {
+        if (pos == dest) {
+            // document.getElementsByClassName('door')[liftNo].style.left = "-100%";
+            clearInterval(id);
+            elevator[liftNo].style.top = pos + "px"; 
+            document.getElementsByClassName("floorNum")[liftNo].innerHTML = no;
+            if(toggle[liftNo].checked) {
+                document.getElementsByClassName('door')[liftNo].style.left = "0";
+            } else {
+                document.getElementsByClassName('door')[liftNo].style.left = "-100%";
+            }
+
+        } else {
+            pos > dest ? pos-- : pos++;
+            elevator[liftNo].style.top = pos + "px";
+            
+            if(x == floorheight) {
+                x = 0;
+                pos > dest ? number++ : number--;
+            } else {
+                x++;
+            }
+            document.getElementsByClassName("floorNum")[liftNo].innerHTML = number;
+        }
+    }
 }
 
 
 function up(no) {
     const floorDetail = liftDetail.map(a => a.maintenance ? 10000000 : a.floor);
     movement(closest(floorDetail, no), no);
+
 }
 
 function down(no) {
     const floorDetail = liftDetail.map(a => a.maintenance ? 10000000 : a.floor);
     movement(closest(floorDetail, no), no);
+
+    // buttons.classList.add('active-left');
+    // buttons.classList.remove('leftDoor');
+    
 }
 
 
@@ -75,7 +104,7 @@ var closest = function(floorDetail, no) {
             return (Math.abs(curr - no) < Math.abs(prev - no) ? curr : prev);
         }));
     } else {
-        return floorDetail.includes(no);
+        return floorDetail.indexOf(no);
     }
 }
 
@@ -85,9 +114,10 @@ const allElevator = function() {
         // console.log(x);
         const html = 
         `<div class="firstRow">
-            <div class="first" style="height:${floorNo}00">
-                <div class="elevator" id="1">
-                    <span id="f1">1</span>
+            <div class="first" style="height:${floorNo}00px">
+                <div class="elevator" style="top:${floorNo-1}00px">
+                    <div class="door active-left" id="leftDoor"></div>
+                    <span class="floorNum">1</span>
                 </div>
             </div>
             <div class="second">
@@ -99,11 +129,12 @@ const allElevator = function() {
         all.insertAdjacentHTML('beforeend', html)
         liftDetail.push({floor: 1, maintenance: false})  
     }
+    // elevator = document.getElementsByClassName('elevator');
     
     all.insertAdjacentHTML('beforeend', `<div class="number"></div>`)  
     
     let number = document.getElementsByClassName('number')[0];
-    number.innerHTML = '';
+    // document.getElementsByClassName('number')[0].innerHTML = '';
 
     for(let i=1; i<=floorNo; i++) {
         // console.log(i);
@@ -135,12 +166,4 @@ const allElevator = function() {
     number.insertAdjacentHTML('beforeend', `<div class="word">Maintenance</div>`);
 }
 
-
-const moving = function() {
-    allElevator();
-    liftDetail.forEach((x, liftNumber) => {
-        movement(liftNumber, x.floor)
-    });
-}
-
-moving();
+allElevator();

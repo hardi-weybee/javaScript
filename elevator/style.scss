@@ -17,7 +17,7 @@ body {
 }
 
 .container {
-    background: #607d8b;
+    background: #6f8894;
     width: fit-content;
     height: fit-content;
     text-align: center;
@@ -42,16 +42,34 @@ body {
                 position: relative;
                 
                 .elevator {    
-                    background-color: black;
-                    color: #ffffff;
+                    background-color: #6f8894;
                     height: 100px;
-                    top: 400px;
                     position: absolute;
+                    overflow: hidden;
                     width: 100px;
                     left: 25;
-                    transition: 0.9s;
+                    border: 2px solid black;
+                    color: black;
+                    font-size: larger;
+                    font-weight: bold;
+                    background-image: url('https://i.pinimg.com/736x/84/6b/d2/846bd2bb25efa3adcf1b8bd2f3a16f70.jpg');
+                    background-size: 100% 100%;
+
+                    span {
+                        position: absolute;
+                        top: 0;
+                    }
+
+                    .door  {          
+                        background:#AAA;
+                        width:96px;
+                        height:95px;
+                        position:relative;
+                        transition:all .3s ease-in;                  
+                    }    
                 }
             }
+            
 
             .second {
                 margin-top: 25px;
@@ -154,17 +172,17 @@ body {
             color: black;
             display: flex;
             margin-top: 25px;
-            font-weight: 400;
+            font-weight: bold;
         }
     }
 }
 
-.elevator > div {
-    position: relative;
-    top: -279px;
+// .elevator > div {
+//     position: relative;
+//     top: -279px;
+// }
 
-}
-.elevator > div > div {
-    height: 70px;
-    position: relative;
-}
+// .elevator > div > div {
+//     height: 70px;
+//     position: relative;
+// }
