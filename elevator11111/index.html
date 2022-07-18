@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css"/>
+        <title>Elevator Task</title>
+    </head>
+
+    <body>
+        <div class="heading">Elevator System<hr></div>
+        <div class="container">
+            <div class="all">
+                <div class="firstRow">
+                    <div class="first">
+                        <div class="elevator">    
+                            <span>1</span>
+                            <div class="door" id="leftDoor"></div>
+                        </div>
+                    </div>
+                    <div class="second">
+                        <label class="switch">
+                            <input type="checkbox" class="toggle" onclick="maintain(0)"><span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="firstRow">
+                    <div class="first">
+                        <div class="elevator">
+
+                            <div class="door" id="leftDoor"></div>
+                    
+                            <span>1</span>
+                        </div>
+                    </div>
+                    <div class="second">
+                        <label class="switch">
+                            <input type="checkbox" class="toggle" onclick="maintain(1)"><span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="firstRow">
+                    <div class="first">
+                        <div class="elevator">
+
+                            <div class="door" id="leftDoor"></div>
+                    
+                            <span>1</span>
+                        </div>
+                    </div>
+                    <div class="second">
+                        <label class="switch">
+                            <input type="checkbox" class="toggle" onclick="maintain(2)"><span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="number">
+                    <div class="one">
+                        <div class="floor">
+                            <label>5</label>
+                        </div>
+                        <button onclick="down(5)"><img src="image/down.png"></button>
+                    </div>
+
+                    <div class="one">
+                        <div class="floor">
+                            <label>4</label>
+                        </div>
+                        <button onclick="up(4)"><img src="image/up.png"></button>
+                        <button onclick="down(4)"><img src="image/down.png"></button>
+                    </div>
+
+                    <div class="one">
+                        <div class="floor">
+                            <label>3</label>
+                        </div>
+                        <button onclick="up(3)"><img src="image/up.png"></button>
+                        <button onclick="down(3)"><img src="image/down.png"></button>
+                    </div>
+
+                    <div class="one">
+                        <div class="floor">
+                            <label>2</label>
+                        </div>
+                        <button onclick="up(2)"><img src="image/up.png"></button>
+                        <button onclick="down(2)"><img src="image/down.png"></button>
+                    </div>
+
+                    <div class="one">
+                        <div class="floor">
+                            <label>1</label>
+                        </div>
+                        <button onclick="up(1)"><img src="image/up.png"></button>
+                    </div>
+                    <div class="word">Maintenance</div>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

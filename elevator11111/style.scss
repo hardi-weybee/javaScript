@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    width: fit-content;
+    margin: auto auto 20px auto;
+}
+
+.heading {
+    margin: 25px auto;
+    text-transform: capitalize;
+    font-size: 30px;
+}
+
+.container {
+    background: #6f8894;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    margin: auto;
+
+    .all {
+        display: flex;
+        justify-content: space-evenly;
+        width: fit-content;
+        height: 90%;
+        padding: 0 20px;
+
+        .firstRow {
+            width: 150px;
+            margin: 20px;
+            
+            .first {
+                background: #a6bcc7;
+                height: 500px;
+                position: relative;
+                
+                .elevator {    
+                    background-color: #6f8894;
+                    height: 100px;
+                    position: absolute;
+                    overflow: hidden;
+                    width: 100px;
+                    left: 25;
+                    border: 2px solid black;
+                    color: black;
+                    font-size: larger;
+                    font-weight: bold;
+                    background-image: url('https://i.pinimg.com/736x/84/6b/d2/846bd2bb25efa3adcf1b8bd2f3a16f70.jpg');
+                    background-size: 100% 100%;
+
+                    span {
+                        position: absolute;
+                        top: 0;
+                    }
+
+                    .door  {          
+                        background:#AAA;
+                        width:96px;
+                        height:95px;
+                        position:relative;
+                        transition:all .3s ease-in;                  
+                    }    
+                }
+            }
+            
+
+            .second {
+                margin-top: 25px;
+                
+                .switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 43px;
+                    height: 22px;
+        
+                    input {
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+                    }
+        
+                    .slider {
+                        position: absolute;
+                        cursor: pointer;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: black;
+                        -webkit-transition: .4s;
+                        transition: .4s;
+                        border-radius: 34px;
+                        border: 1px solid black;
+                    }
+                    
+                    .slider:before {
+                        position: absolute;
+                        content: "";
+                        height: 14px;
+                        width: 14px;
+                        left: 3px;
+                        bottom: 3px;
+                        background-color: white;
+                        -webkit-transition: .4s;
+                        transition: .4s;
+                        border-radius: 50%;
+                    }
+        
+                    input:checked + .slider {
+                        background-color: red;
+                    }
+        
+                    input:checked + .slider:before {
+                        -webkit-transform: translateX(20px);
+                        -ms-transform: translateX(20px);
+                        transform: translateX(20px);
+                    }    
+                }
+            }
+        }
+
+        .number {
+            width: fit-content;
+            height: 90%;
+            // background: #006266;
+            position: relative;
+            margin: 20px 0;
+
+            .one {
+                display: flex;
+                height: 100px;
+                justify-content: start;
+                align-items: center;
+
+                .floor {
+                    background: black;
+                    border-radius: 50%;
+                    height: 50px;
+                    width: 50px;
+                    margin: 0 8px 0 0;
+
+                    label {
+                        color: white;
+                        font-size: larger;
+                        line-height: 45px;
+                    }
+                }
+
+                button {
+                    border: none;
+                    background: none;
+
+                    img {
+                        width: 50px;
+                        height: 50px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .word {
+            width: 20%;
+            font-size: 25px;
+            color: black;
+            display: flex;
+            margin-top: 25px;
+            font-weight: bold;
+        }
+    }
+}
+
+// .elevator > div {
+//     position: relative;
+//     top: -279px;
+// }
+
+// .elevator > div > div {
+//     height: 70px;
+//     position: relative;
+// }
