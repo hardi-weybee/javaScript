@@ -38,6 +38,7 @@ function theme() {
     let ss = document.querySelectorAll('.textedit').length;
     // console.log(ss);
     if(change(changeTheme.value) == !true) {
+        document.getElementsByClassName('instruction')[0].style.color = 'white';
         document.getElementById('title').style.color = 'white';
         document.getElementsByTagName('h3')[0].style.color = 'white';
         for(let i=0; i<ss; i++) {
@@ -46,6 +47,7 @@ function theme() {
             document.querySelectorAll('.trashBtn')[i].innerHTML = '<img src="images/delete1.svg"></img>';
         }
     } else {
+        document.getElementsByClassName('instruction')[0].style.color = 'black';
         document.getElementById('title').style.color = 'black';
         document.getElementsByTagName('h3')[0].style.color = 'black';
         for(let i=0; i<ss; i++) {

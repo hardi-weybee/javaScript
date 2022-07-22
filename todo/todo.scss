@@ -52,6 +52,11 @@ body {
     font-size: large;
     width: 100%;
 
+    .instruction {
+        align-self: flex-end;
+        width: 250px;
+    }
+
     #title {
         text-transform: uppercase;
     }
@@ -61,7 +66,7 @@ body {
     position: relative;
     display: inline-block;
     align-self: flex-end;
-    margin-right: 3%;
+    margin: auto 6%;
 
     input {
         border: none;

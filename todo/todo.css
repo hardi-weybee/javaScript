@@ -36,6 +36,10 @@ body {
   font-size: large;
   width: 100%;
 }
+#header .instruction {
+  align-self: flex-end;
+  width: 250px;
+}
 #header #title {
   text-transform: uppercase;
 }
@@ -44,7 +48,7 @@ body {
   position: relative;
   display: inline-block;
   align-self: flex-end;
-  margin-right: 3%;
+  margin: auto 6%;
 }
 .flexrow-container input {
   border: none;
