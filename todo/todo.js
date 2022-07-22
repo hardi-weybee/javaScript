@@ -10,8 +10,6 @@ const secondBtn = document.querySelector('.second');
 const thirdBtn = document.querySelector('.third');
 const lightTheme = document.querySelector('.light-theme');
 const standardTheme = document.querySelector('.standard-theme');
-// const editt = document.querySelector('.editBtn');
-// const textedit = document.querySelectorAll
 
 const select = document.getElementById('dropdown');
 const sort = document.getElementById('dropdown1');
@@ -56,8 +54,6 @@ function theme() {
             document.querySelectorAll('.trashBtn')[i].innerHTML = '<img src="images/delete.svg"></img>';
         }
     }
-    // change(changeTheme.value)
-    // console.log(changeTheme.value);
 }
 
 input.addEventListener('keyup', function(e) {
