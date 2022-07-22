@@ -123,7 +123,7 @@ const allElevator = function() {
             </div>
         </div>`
         all.insertAdjacentHTML('beforeend', html)
-        liftDetail.push({floor: 1, maintenance: false})  
+        liftDetail.push({floor: 1, maintenance: false, moving: false})  
     }
     
     all.insertAdjacentHTML('beforeend', `<div class="number"></div>`)  
