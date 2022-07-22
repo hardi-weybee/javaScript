@@ -56,7 +56,6 @@ function movement(liftNo, no) {
     
     function frame() {
         if (pos == dest) {
-            // document.getElementsByClassName('door')[liftNo].style.left = "-100%";
             clearInterval(id);
             elevator[liftNo].style.top = pos + "px"; 
             document.getElementsByClassName("floorNum")[liftNo].innerHTML = no;
@@ -94,7 +93,6 @@ function down(no) {
 
     // buttons.classList.add('active-left');
     // buttons.classList.remove('leftDoor');
-    
 }
 
 
@@ -129,7 +127,6 @@ const allElevator = function() {
         all.insertAdjacentHTML('beforeend', html)
         liftDetail.push({floor: 1, maintenance: false})  
     }
-    // elevator = document.getElementsByClassName('elevator');
     
     all.insertAdjacentHTML('beforeend', `<div class="number"></div>`)  
     
@@ -159,10 +156,8 @@ const allElevator = function() {
                 <button onclick="down(${i})"><img src="image/down.png"></button>
             </div>`;
         }
-    
         number.insertAdjacentHTML('afterbegin', floorHTML);
     }
-
     number.insertAdjacentHTML('beforeend', `<div class="word">Maintenance</div>`);
 }
 
