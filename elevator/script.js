@@ -11,10 +11,10 @@ console.log(elevator);
 console.log(toggle);
 
 
-// let lift = Number(prompt("enter the number of lifts u want"));
-// let floorNo = Number(prompt("enter the number of floors u want"));
-let lift = 3;
-let floorNo = 5;
+let lift = Number(prompt("enter the number of lifts u want"));
+let floorNo = Number(prompt("enter the number of floors u want"));
+// let lift = 3;
+// let floorNo = 5;
 let liftDetail = [];
 
 
