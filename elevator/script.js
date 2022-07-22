@@ -84,17 +84,13 @@ function movement(liftNo, no) {
 
 
 function up(no) {
-    const floorDetail = liftDetail.map(a => a.maintenance ? 10000000 : a.floor);
+    const floorDetail = liftDetail.map(a => a.maintenance ? 10000000000 : a.floor);
     movement(closest(floorDetail, no), no);
-
 }
 
 function down(no) {
-    const floorDetail = liftDetail.map(a => a.maintenance ? 10000000 : a.floor);
+    const floorDetail = liftDetail.map(a => a.maintenance ? 10000000000 : a.floor);
     movement(closest(floorDetail, no), no);
-
-    // buttons.classList.add('active-left');
-    // buttons.classList.remove('leftDoor');
 }
 
 
@@ -135,27 +131,27 @@ const allElevator = function() {
     let number = document.getElementsByClassName('number')[0];
     // document.getElementsByClassName('number')[0].innerHTML = '';
 
-    for(let i=1; i<=floorNo; i++) {
-        // console.log(i);
+    for(let x=1; x<=floorNo; x++) {
+        // console.log(x);
         let floorHTML; 
-        if(i === 1) {
+        if(x === 1) {
             floorHTML = 
             `<div class="one">
-                <div class="floor"><label>${i}</label></div>
-                <button onclick="up(${i})"><img src="image/up.png"></button>
+                <div class="floor"><label>${x}</label></div>
+                <button onclick="up(${x})"><img src="image/up.png"></button>
             </div>`;
-        } else if(i === floorNo) {
+        } else if(x === floorNo) {
             floorHTML =  
             `<div class="one">
-                <div class="floor"><label>${i}</label></div>
-                <button onclick="down(${i})"><img src="image/down.png"></button>
+                <div class="floor"><label>${x}</label></div>
+                <button onclick="down(${x})"><img src="image/down.png"></button>
             </div>`;
         } else {
             floorHTML = 
             `<div class="one">
-                <div class="floor"><label>${i}</label></div>
-                <button onclick="up(${i})"><img src="image/up.png"></button>
-                <button onclick="down(${i})"><img src="image/down.png"></button>
+                <div class="floor"><label>${x}</label></div>
+                <button onclick="up(${x})"><img src="image/up.png"></button>
+                <button onclick="down(${x})"><img src="image/down.png"></button>
             </div>`;
         }
         number.insertAdjacentHTML('afterbegin', floorHTML);
